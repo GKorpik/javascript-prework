@@ -18,11 +18,34 @@ printMessage('Zagrałem ' + paper + '! Jeśli Twój ruch to nożyczki, to wygryw
 printMessage('Zagrałem ' + scissors + '! Jeśli Twój ruch to kamień, to wygrywasz!');
 
 
-var compoterMove;
+var computerMove;
 
-compoterMove = stone;
-printMessage('Zagrałem ' + compoterMove + '! Jeśli Twój ruch to papier, to wygrywasz!');
+computerMove = stone;
+printMessage('Zagrałem ' + computerMove + '! Jeśli Twój ruch to papier, to wygrywasz!');
 
 var playerMove = paper;
 
 printMessage('Zagrałem ' + playerMove + '! Wygrałem!');
+
+
+
+
+
+
+
+// ruch komputera
+
+
+var randomNumber;
+randomNumber = Math.floor(Math.random() * 3 + 1);
+printMessage('Wylosowana liczba to: ' + randomNumber);
+console.log('wylosowana liczba to: ' + randomNumber);
+
+if (randomNumber == '1') {
+  computerMove = 'kamień';
+} else if (randomNumber == '2') {
+	computerMove = paper;
+} else {
+  computerMove = scissors;
+}
+printMessage('Mój ruch: ' + computerMove);

@@ -8,6 +8,7 @@ var stone = 'kamień';
 var paper = 'papier';
 var scissors = 'nożyczki';
 var argMoveId, argPlayerMove, argComputerMove, randomNumber, computerMove, argButtonName, buttonRock, buttonPaper, buttonScissors;
+var playerMove = argButtonName;
 
 function printMessage(msg){
 	var div = document.createElement('div');
@@ -26,7 +27,7 @@ buttonRock = document.getElementById('button-rock');
 
 buttonPaper = document.getElementById('button-paper');
 
-buttonScissors = document.getElementById('button-scissors ');
+buttonScissors = document.getElementById('button-scissors');
 
 
 function buttonClicked(argButtonName) {
@@ -69,7 +70,7 @@ function displayResult(argPlayerMove, argComputerMove) {
   }
   printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
 }
-var playerMove = argButtonName;
+
 console.log('ruch gracza to: ' + playerMove);
 randomNumber = Math.floor(Math.random() * 3 + 1);
 console.log('wylosowana liczba to: ' + randomNumber);

@@ -2,12 +2,10 @@
 /**
 * Zmienne
 **/
-
-
 var stone = 'kamień';
 var paper = 'papier';
 var scissors = 'nożyczki';
-var argMoveId, argPlayerMove, argComputerMove, randomNumber, computerMove, argButtonName, buttonRock, buttonPaper, buttonScissors;
+var argMoveId, argPlayerMove, argComputerMove, randomNumber, computerMove, argButtonName, buttonTest, buttonRock, buttonPaper, buttonScissors, msg;
 var playerMove = argButtonName;
 
 function printMessage(msg){
@@ -22,6 +20,8 @@ function clearMessages(){
 /**
  * Guziki
  */
+
+buttonTest = document.getElementById('button-test');
 
 buttonRock = document.getElementById('button-rock');
 
@@ -47,7 +47,7 @@ function getMoveName(argMoveId) {
   } else if (argMoveId == 2) {
   	return paper;
   } else if (argMoveId == 3) {
-  	return scissors
+  	return scissors;
   } else {
     printMessage('Nie znam ruchu o id ' + argMoveId + '. Zakładam, że chodziło o "kamień".');
     return 'kamień';
@@ -80,11 +80,10 @@ console.log('ruch komputera to: ' + computerMove);
 
 displayResult(playerMove, computerMove);
 
+buttonTest.addEventListener('click', function(){ buttonClicked('Guzik test'); });
 
 buttonRock.addEventListener('click', function(){ buttonClicked('Guzik kamień'); });
 
 buttonPaper.addEventListener('click', function(){ buttonClicked('Guzik papier'); });
 
 buttonScissors.addEventListener('click', function(){ buttonClicked('Guzik nożyce'); });
-
-

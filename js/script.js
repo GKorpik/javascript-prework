@@ -5,8 +5,7 @@
 var stone = 'kamień';
 var paper = 'papier';
 var scissors = 'nożyczki';
-var argMoveId, argPlayerMove, argComputerMove, randomNumber, computerMove, argButtonName, buttonTest, buttonRock, buttonPaper, buttonScissors, msg;
-var playerMove = argButtonName;
+var argMoveId, argPlayerMove, argComputerMove, randomNumber, computerMove, argButtonName, buttonTest, buttonRock, buttonPaper, buttonScissors, playerMove;
 
 function printMessage(msg){
 	var div = document.createElement('div');
@@ -21,7 +20,6 @@ function clearMessages(){
  * Guziki
  */
 
-buttonTest = document.getElementById('button-test');
 
 buttonRock = document.getElementById('button-rock');
 
@@ -33,6 +31,15 @@ buttonScissors = document.getElementById('button-scissors');
 function buttonClicked(argButtonName) {
   clearMessages();
   console.log(argButtonName + ' został kliknięty');
+  playerMove = argButtonName;
+  console.log('ruch gracza to: ' + playerMove);
+  randomNumber = Math.floor(Math.random() * 3 + 1);
+  console.log('wylosowana liczba to: ' + randomNumber);
+  computerMove = getMoveName(randomNumber);
+  console.log('ruch komputera to: ' + computerMove);
+
+
+  displayResult(playerMove, computerMove);
 }
 
 
@@ -71,19 +78,9 @@ function displayResult(argPlayerMove, argComputerMove) {
   printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
 }
 
-console.log('ruch gracza to: ' + playerMove);
-randomNumber = Math.floor(Math.random() * 3 + 1);
-console.log('wylosowana liczba to: ' + randomNumber);
-computerMove = getMoveName(randomNumber);
-console.log('ruch komputera to: ' + computerMove);
 
+buttonRock.addEventListener('click', function(){ buttonClicked('kamień'); });
 
-displayResult(playerMove, computerMove);
+buttonPaper.addEventListener('click', function(){ buttonClicked('papier'); });
 
-buttonTest.addEventListener('click', function(){ buttonClicked('Guzik test'); });
-
-buttonRock.addEventListener('click', function(){ buttonClicked('Guzik kamień'); });
-
-buttonPaper.addEventListener('click', function(){ buttonClicked('Guzik papier'); });
-
-buttonScissors.addEventListener('click', function(){ buttonClicked('Guzik nożyce'); });
+buttonScissors.addEventListener('click', function(){ buttonClicked('nożyce'); });

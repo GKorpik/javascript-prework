@@ -1,11 +1,12 @@
-
 /**
 * Zmienne
 **/
-var stone = 'kamień';
-var paper = 'papier';
-var scissors = 'nożyczki';
-var argMoveId, argPlayerMove, argComputerMove, randomNumber, computerMove, argButtonName, buttonTest, buttonRock, buttonPaper, buttonScissors, playerMove;
+const stone = 'kamień',
+      paper = 'papier',
+      scissors = 'nożyczki';
+
+
+
 
 function printMessage(msg){
 	var div = document.createElement('div');
@@ -16,22 +17,25 @@ function printMessage(msg){
 function clearMessages(){
 	document.getElementById('messages').innerHTML = '';
 }
+
+
 /**
  * Guziki
  */
 
-
-buttonRock = document.getElementById('button-rock');
-
-buttonPaper = document.getElementById('button-paper');
-
-buttonScissors = document.getElementById('button-scissors');
+const buttonRock = document.getElementById('button-rock'),
+      buttonPaper = document.getElementById('button-paper'),
+      buttonScissors = document.getElementById('button-scissors');
 
 
 function buttonClicked(argButtonName) {
   clearMessages();
+  
+  const playerMove = argButtonName;
+  let randomNumber, 
+      computerMove;
+
   console.log(argButtonName + ' został kliknięty');
-  playerMove = argButtonName;
   console.log('ruch gracza to: ' + playerMove);
   randomNumber = Math.floor(Math.random() * 3 + 1);
   console.log('wylosowana liczba to: ' + randomNumber);
